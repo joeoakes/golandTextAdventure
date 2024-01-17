@@ -1,0 +1,19 @@
+<game>
+    <rooms>
+        <room id="start" name="Start Room">
+            <description>You are in a small, dimly lit room. There is a door to the north.</description>
+            <exits>
+                <exit direction="north" target="hallway" />
+            </exits>
+        </room>
+        <room id="hallway" name="Hallway">
+            <description>You are in a long, narrow hallway. There is a door to the south.</description>
+            <exits>
+                <exit direction="south" target="start" />
+            </exits>
+        </room>
+    </rooms>
+    <items>
+        <item id="key" name="Key" description="A small golden key." location="start" />
+    </items>
+</game>
