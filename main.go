@@ -63,7 +63,7 @@ func findCurrentRoom(roomID string, rooms []Room) *Room {
 
 func main() {
 	// Read and parse the game data from XML
-	data, err := ioutil.ReadFile("game.xml")
+	data, err := ioutil.ReadFile("space.xml")
 	if err != nil {
 		fmt.Println("Error reading game data:", err)
 		return

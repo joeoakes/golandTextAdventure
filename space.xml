@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<game>
+    <!-- Define game information -->
+    <title>Space Adventure</title>
+    <author>Your Name</author>
+    <description>An exciting space adventure game.</description>
+
+    <!-- Define game starting point -->
+    <start-room>start</start-room>
+
+    <!-- Define rooms -->
+    <rooms>
+        <room id="start">
+            <name>Spaceship Interior</name>
+            <description>You are inside a spaceship, ready for an adventure.</description>
+            <exits>
+                <exit direction="north">hangar</exit>
+            </exits>
+        </room>
+        <room id="hangar">
+            <name>Space Hangar</name>
+            <description>You are in the hangar bay of the spaceship.</description>
+            <exits>
+                <exit direction="south">start</exit>
+                <exit direction="east">space</exit>
+            </exits>
+            <items>
+                <item id="spacesuit">
+                    <name>Spacesuit</name>
+                    <description>A spacesuit for spacewalks.</description>
+                </item>
+            </items>
+        </room>
+        <room id="space">
+            <name>Outer Space</name>
+            <description>You are floating in the vastness of space.</description>
+            <exits>
+                <exit direction="west">hangar</exit>
+            </exits>
+        </room>
+    </rooms>
+
+    <!-- Define items -->
+    <items>
+        <!-- Add more items here as needed -->
+    </items>
+
+    <!-- Define characters -->
+    <characters>
+        <!-- Add characters here as needed -->
+    </characters>
+
+    <!-- Define game events and interactions -->
+    <events>
+        <!-- Define events and interactions here as needed -->
+    </events>
+</game>
