@@ -66,6 +66,16 @@
 
     <!-- Define game events and interactions -->
     <events>
-        <!-- Define events and interactions here as needed -->
+        <event id="encounter_alien">
+            <description>You encounter a hostile alien!</description>
+            <choices>
+                <choice id="fight" description="Fight the alien">
+                    <outcome>combat_alien</outcome>
+                </choice>
+                <choice id="run_away" description="Run away">
+                    <outcome>run_away</outcome>
+                </choice>
+            </choices>
+        </event>
     </events>
 </game>
