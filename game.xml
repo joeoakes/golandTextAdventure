@@ -14,6 +14,13 @@
         </room>
     </rooms>
     <items>
-        <item id="key" name="Key" description="A small golden key." location="start" />
+        <item id="key" location="start">
+            <name>Key</name>
+            <description>A small golden key.</description>
+        </item>
+        <item id="gold" location="start">
+            <name>gold</name>
+            <description>Five gold bars</description>
+        </item>
     </items>
 </game>

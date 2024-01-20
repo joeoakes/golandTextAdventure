@@ -48,7 +48,20 @@
 
     <!-- Define characters -->
     <characters>
-        <!-- Add characters here as needed -->
+        <character>
+            <name>Player</name>
+            <description>You are the main character.</description>
+            <health>100</health>
+            <inventory>
+                <item>Gun</item>
+                <item>Medkit</item>
+            </inventory>
+        </character>
+        <character>
+            <name>Alien</name>
+            <description>A hostile alien.</description>
+            <health>50</health>
+        </character>
     </characters>
 
     <!-- Define game events and interactions -->
