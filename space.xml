@@ -16,6 +16,8 @@
             <exits>
                 <exit direction="north">hangar</exit>
             </exits>
+            <items>
+            </items>
         </room>
         <room id="hangar">
             <name>Space Hangar</name>
@@ -25,10 +27,6 @@
                 <exit direction="east">space</exit>
             </exits>
             <items>
-                <item id="spacesuit">
-                    <name>Spacesuit</name>
-                    <description>A spacesuit for spacewalks.</description>
-                </item>
             </items>
         </room>
         <room id="space">
@@ -42,7 +40,10 @@
 
     <!-- Define items -->
     <items>
-        <!-- Add more items here as needed -->
+        <item id="spacesuit" location="start">
+            <name>spacesuit</name>
+            <description>A spacesuit for spacewalks</description>
+        </item>
     </items>
 
     <!-- Define characters -->
