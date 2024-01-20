@@ -57,6 +57,16 @@ type Characters struct {
 	Characters []Character `xml:"character"`
 }
 
+func getEvents(events []Event, choices []Choice) {
+	// Iterate through game events and choices
+	for _, event := range events {
+		fmt.Println("\nEvent:", event.Description)
+		for _, choice := range choices {
+			fmt.Printf("Choice %s: %s (Leads to outcome: %s)\n", choice.ID, choice.Description, choice.Outcome)
+		}
+	}
+}
+
 func checkItemsInRoom(roomID string, items []Item) {
 	fmt.Println("Items in the room:")
 	for _, item := range items {
