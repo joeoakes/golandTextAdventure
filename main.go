@@ -7,10 +7,18 @@ import (
 )
 
 type Game struct {
-	XMLName xml.Name `xml:"game"`
-	Rooms   []Room   `xml:"rooms>room"`
-	Items   []Item   `xml:"items>item"`
-	Events  []Event  `xml:"events>event"`
+	XMLName    xml.Name `xml:"game"`
+	Rooms      []Room   `xml:"rooms>room"`
+	Items      []Item   `xml:"items>item"`
+	Events     []Event  `xml:"events>event"`
+	StartLevel string   `xml:"start-level"`
+	Levels     []Level  `xml:"levels>level"`
+}
+
+type Level struct {
+	ID          string `xml:"id,attr"`
+	Description string `xml:"description"`
+	Rooms       []Room `xml:"rooms>room"`
 }
 
 type Event struct {
@@ -57,8 +65,29 @@ type Characters struct {
 	Characters []Character `xml:"character"`
 }
 
+func getLevels(levels []Level) {
+	// Iterate through levels and rooms
+	for _, level := range levels {
+		fmt.Println("\nLevel:", level.Description)
+		for _, room := range level.Rooms {
+			fmt.Printf("\nRoom: %s\nDescription: %s\nExits:\n", room.Name, room.Description)
+			for _, exit := range room.Exits {
+				fmt.Printf("- %s to %s\n", exit.Direction, exit.Target)
+			}
+		}
+	}
+}
+
+func getCharacters(characters []Character) {
+	fmt.Println("Game Characters:")
+	for _, character := range characters {
+		fmt.Printf("Name: %s\nDescription: %s\nHealth: %d\nInventory: %v\n\n",
+			character.Name, character.Description, character.Health, character.Inventory)
+	}
+}
+
+// Iterate through game events and choices
 func getEvents(events []Event, choices []Choice) {
-	// Iterate through game events and choices
 	for _, event := range events {
 		fmt.Println("\nEvent:", event.Description)
 		for _, choice := range choices {
