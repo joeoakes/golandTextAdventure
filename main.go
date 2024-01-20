@@ -10,6 +10,19 @@ type Game struct {
 	XMLName xml.Name `xml:"game"`
 	Rooms   []Room   `xml:"rooms>room"`
 	Items   []Item   `xml:"items>item"`
+	Events  []Event  `xml:"events>event"`
+}
+
+type Event struct {
+	ID          string   `xml:"id,attr"`
+	Description string   `xml:"description"`
+	Choices     []Choice `xml:"choices>choice"`
+}
+
+type Choice struct {
+	ID          string `xml:"id,attr"`
+	Description string `xml:"description"`
+	Outcome     string `xml:"outcome"`
 }
 
 type Room struct {
