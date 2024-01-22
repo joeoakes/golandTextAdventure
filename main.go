@@ -144,6 +144,7 @@ func main() {
 
 	getCharacters(game.Characters)
 	getEvents(game.Events)
+	getLevels(game.Levels)
 
 	// Initialize game state
 	currentRoom := "start"

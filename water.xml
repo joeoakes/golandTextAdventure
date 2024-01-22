@@ -70,8 +70,6 @@
                 </choice>
             </choices>
         </event>
-    </events>
-    <events>
         <event id="encounter_teddybear">
             <description>You encounter a hostile teddy bear!</description>
             <choices>
