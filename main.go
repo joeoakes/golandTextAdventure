@@ -7,12 +7,13 @@ import (
 )
 
 type Game struct {
-	XMLName    xml.Name `xml:"game"`
-	Rooms      []Room   `xml:"rooms>room"`
-	Items      []Item   `xml:"items>item"`
-	Events     []Event  `xml:"events>event"`
-	StartLevel string   `xml:"start-level"`
-	Levels     []Level  `xml:"levels>level"`
+	XMLName    xml.Name    `xml:"game"`
+	Rooms      []Room      `xml:"rooms>room"`
+	Items      []Item      `xml:"items>item"`
+	Events     []Event     `xml:"events>event"`
+	Characters []Character `xml:"characters>character"`
+	StartLevel string      `xml:"start-level"`
+	Levels     []Level     `xml:"levels>level"`
 }
 
 type Level struct {
@@ -29,13 +30,13 @@ type Event struct {
 
 type Choice struct {
 	ID          string `xml:"id,attr"`
-	Description string `xml:"description"`
+	Description string `xml:"description,attr"`
 	Outcome     string `xml:"outcome"`
 }
 
 type Room struct {
 	ID          string `xml:"id,attr"`
-	Name        string `xml:"name"`
+	Name        string `xml:"name,attr"`
 	Description string `xml:"description"`
 	Exits       []Exit `xml:"exits>exit"`
 }
@@ -87,10 +88,10 @@ func getCharacters(characters []Character) {
 }
 
 // Iterate through game events and choices
-func getEvents(events []Event, choices []Choice) {
+func getEvents(events []Event) {
 	for _, event := range events {
 		fmt.Println("\nEvent:", event.Description)
-		for _, choice := range choices {
+		for _, choice := range event.Choices {
 			fmt.Printf("Choice %s: %s (Leads to outcome: %s)\n", choice.ID, choice.Description, choice.Outcome)
 		}
 	}
@@ -128,7 +129,7 @@ func findCurrentRoom(roomID string, rooms []Room) *Room {
 func main() {
 
 	// Read and parse the game data from XML
-	data, err := os.ReadFile("space.xml")
+	data, err := os.ReadFile("water.xml")
 	if err != nil {
 		fmt.Println("Error reading game data:", err)
 		return
@@ -140,6 +141,9 @@ func main() {
 		fmt.Println("Error parsing game data:", err)
 		return
 	}
+
+	getCharacters(game.Characters)
+	getEvents(game.Events)
 
 	// Initialize game state
 	currentRoom := "start"
@@ -160,11 +164,11 @@ func main() {
 		// Check for items in the room
 		checkItemsInRoom(currentRoom, game.Items)
 		// Prompt for user input
-		fmt.Print("\nEnter a direction to move or 'quit' to exit: ")
+		fmt.Print("\nEnter a direction to move or 'quit' or 'q' to exit: ")
 		var userInput string
 		fmt.Scanln(&userInput)
 		// Handle user input
-		if userInput == "quit" {
+		if userInput == "quit" || userInput == "q" {
 			fmt.Println("Thanks for playing!")
 			os.Exit(0)
 		}

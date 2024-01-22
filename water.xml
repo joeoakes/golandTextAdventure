@@ -2,7 +2,7 @@
     <rooms>
         <room id="start" name="Start Room">
             <name>Start Room</name>
-            <description>You are in a small, dimly lit room. There is a door to the north.</description>
+            <description>You are in a lake</description>
             <exits>
                 <exit direction="north" target="hallway" />
                 <exit direction="south" target="pool" />
@@ -42,4 +42,46 @@
             <description>Green bathing suit</description>
         </item>
     </items>
+    <characters>
+        <character>
+            <name>Player</name>
+            <description>You are the main character.</description>
+            <health>100</health>
+            <inventory>
+                <item>Gun</item>
+                <item>Medkit</item>
+            </inventory>
+        </character>
+        <character>
+            <name>Alien</name>
+            <description>A hostile alien.</description>
+            <health>50</health>
+        </character>
+    </characters>
+    <events>
+        <event id="encounter_alien">
+            <description>You encounter a hostile alien!</description>
+            <choices>
+                <choice id="fight" description="Fight the alien">
+                    <outcome>combat_alien</outcome>
+                </choice>
+                <choice id="run_away" description="Run away">
+                    <outcome>run_away</outcome>
+                </choice>
+            </choices>
+        </event>
+    </events>
+    <events>
+        <event id="encounter_teddybear">
+            <description>You encounter a hostile teddy bear!</description>
+            <choices>
+                <choice id="fight" description="Fight the teddy bear">
+                    <outcome>combat_alien</outcome>
+                </choice>
+                <choice id="run_away" description="Run away">
+                    <outcome>run_away</outcome>
+                </choice>
+            </choices>
+        </event>
+    </events>
 </game>
